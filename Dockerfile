@@ -1,4 +1,3 @@
-
 FROM node:carbon
 RUN mkdir -p /bakiTest
 COPY helloworld.js package.json /bakiTest
