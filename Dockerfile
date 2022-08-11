@@ -1,4 +1,4 @@
-FROM node:carbon
+FROM node:18-bullseye-slim
 RUN mkdir -p /bakiTest
 COPY helloworld.js package.json /bakiTest
 WORKDIR /bakiTest
