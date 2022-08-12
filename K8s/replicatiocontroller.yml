@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: node-rc
+  labels:
+      app: node-app
+      type: front-end
+spec:
+  template:
+    metadata:
+  name: node-pod
+  labels:
+      app: node-app
+      type: front-end
+  spec:
+  containers:
+    - name: test-container
+      image: bakra43/test
+
+  replicas: 3
+
+
