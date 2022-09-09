@@ -1,0 +1,30 @@
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: node-service
+#   namespace: devopschallenge
+#   labels:
+#     name: node-service
+# spec:
+#   type: NodePort
+#   ports:
+#     - port: 3000
+#       nodePort: 30036
+#       name: http
+#       targetPort: 3000
+#   selector:
+#     name: node-service
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-service
+  namespace: devopschallenge
+spec:
+  selector:
+    app: hellotdy
+  ports:
+    - port: 3000
+      targetPort: 3000
+  type: LoadBalancer

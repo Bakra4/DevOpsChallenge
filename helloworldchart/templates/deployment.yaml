@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-rs
+  namespace: devopschallenge
+  labels:
+    app: hellotdy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hellotdy
+  template:
+    metadata:
+      labels:
+        app: hellotdy
+    spec:
+      containers:
+      - name: hellotdy
+        imagePullPolicy: IfNotPresent
+        image: bakra43/test4e:latest
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: devopschallenge
