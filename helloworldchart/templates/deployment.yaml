@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-rs
-  namespace: devopschallenge
   labels:
     app: hellotdy
 spec:
@@ -23,8 +22,8 @@ spec:
         - containerPort: 3000
           protocol: TCP
 
----
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: devopschallenge
+# ---
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#     name: devopschallenge

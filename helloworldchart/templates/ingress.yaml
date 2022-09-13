@@ -2,18 +2,24 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hw-ingress
-  namespace: devopschallenge
+  #namespace: devopschallenge
   annotations:
+    external-dns.alpha.kubernetes.io/hostname: nikolabakracevski.me
     kubernetes.io/ingress.class: gce
     kubernetes.io/ingress.allow-http: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/issuer: letsencrypt-production
+    #nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  tls:
+    - secretName: webski-ssl
+      hosts:
+        - nikolabakracevski.me
   rules:
-  - host: baki-world.info
-  - http:
+  - host: nikolabakracevski.me
+    http:
       paths:
-      - path: "/"
-        pathType: Prefix
+      - pathType: Prefix
+        path: "/"  
         backend:
           service:
             name: example-service

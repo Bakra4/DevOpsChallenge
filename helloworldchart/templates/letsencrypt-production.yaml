@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: nikolabakracevski@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-production
+    solvers:
+    - dns01:
+        cloudflare:
+          apiTokenSecretRef:
+            name: client-secret
+            key: api-token
